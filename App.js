@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, FlatList} from 'react-native';
 
 export default function App() {
 
@@ -68,15 +68,14 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text> Our Todo List </Text>
-      <ScrollView> 
-      {todos.map(todo => {
-        return(
-          <View key={todo.id} style={styles.todo}>
-            <Text> {todo.title}</Text>
-          </View>
-        )
-      })}
-      </ScrollView>
+      <FlatList 
+        numColumns={3}
+        keyExtractor={(item) => item.id.toString()}
+        data={todos}
+        renderItem={({ item }) => (
+          <Text style={styles.todo}>{item.title}</Text>
+        )}
+      />
       <StatusBar style="auto" />
     </View>
   );
@@ -91,10 +90,10 @@ const styles = StyleSheet.create({
   },
 
   todo: {
-    margin: 30,
+    margin: 10,
     backgroundColor: 'green',
     color: 'white',
-    fontSize: 30,
-    padding: 30,
+    fontSize: 10,
+    padding: 10,
   }
 });
