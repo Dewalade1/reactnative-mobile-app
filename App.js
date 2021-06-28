@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, FlatList} from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
 
 export default function App() {
 
@@ -65,6 +65,11 @@ export default function App() {
     "completed": true
   }])
 
+  const pressHandler = (id) => {
+    const selectedItem = (todos.filter( todo => todo.id === id))[0]
+    alert(selectedItem.title)
+  }
+
   return (
     <View style={styles.container}>
       <Text> Our Todo List </Text>
@@ -73,7 +78,9 @@ export default function App() {
         keyExtractor={(item) => item.id.toString()}
         data={todos}
         renderItem={({ item }) => (
-          <Text style={styles.todo}>{item.title}</Text>
+          <TouchableOpacity onPress={() => pressHandler(item.id)}>
+            <Text style={styles.todo}>{item.title}</Text>
+          </TouchableOpacity>
         )}
       />
       <StatusBar style="auto" />
