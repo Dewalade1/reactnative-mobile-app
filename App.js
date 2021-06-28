@@ -1,11 +1,82 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, Button, TextInput} from 'react-native';
+import { StyleSheet, Text, View, ScrollView} from 'react-native';
 
 export default function App() {
+
+  const [todos, setTodos] = useState([{
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 2,
+    "title": "quis ut nam facilis et officia qui",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 3,
+    "title": "fugiat veniam minus",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 4,
+    "title": "et porro tempora",
+    "completed": true
+  },
+  {
+    "userId": 1,
+    "id": 5,
+    "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 6,
+    "title": "qui ullam ratione quibusdam voluptatem quia omnis",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 7,
+    "title": "illo expedita consequatur quia in",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 8,
+    "title": "quo adipisci enim quam ut ab",
+    "completed": true
+  },
+  {
+    "userId": 1,
+    "id": 9,
+    "title": "molestiae perspiciatis ipsa",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 10,
+    "title": "illo est ratione doloremque quia maiores aut",
+    "completed": true
+  }])
+
   return (
     <View style={styles.container}>
-      <Text> Hello World! </Text>
+      <Text> Our Todo List </Text>
+      <ScrollView> 
+      {todos.map(todo => {
+        return(
+          <View key={todo.id} style={styles.todo}>
+            <Text> {todo.title}</Text>
+          </View>
+        )
+      })}
+      </ScrollView>
       <StatusBar style="auto" />
     </View>
   );
@@ -19,24 +90,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  textInput: {
-    borderWidth: 1,
-    borderColor: 'black',
-    width: 300,
-    height: 50,
-    padding: 10,
-    margin: 10,
-  },
-
-  myText: {
-    color: 'blue',
-    fontWeight: 'bold',
-    fontSize: 40,
-  },
-
-  buttonStyle: {
+  todo: {
+    margin: 30,
     backgroundColor: 'green',
-    borderColor: 'black',
-    borderWidth: 1,
-  },
+    color: 'white',
+    fontSize: 30,
+    padding: 30,
+  }
 });
