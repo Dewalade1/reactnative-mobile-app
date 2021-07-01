@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {v4 as uuidv4} from 'uuid';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, View, SafeAreaView, FlatList, TouchableOpacity, TouchableWithoutFeedback, Alert, Keyboard } from 'react-native';
 
 import TaskData from './data/taskData';
 
@@ -24,21 +24,23 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Header/>
-      <View style={styles.content}>
-        <AddTask addTask={addTask} />
-        <View style={styles.list}>
-          <FlatList
-            data={tasks}
-            renderItem={({item}) => (
-              <Task item = {item}/>
-            )}
-          />
-         </View>
-      </View>
-      <StatusBar style="auto" />
-    </SafeAreaView>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}> 
+      <SafeAreaView style={styles.container}>
+        <Header/>
+        <View style={styles.content}>
+          <AddTask addTask={addTask} />
+          <View style={styles.list}>
+            <FlatList
+              data={tasks}
+              renderItem={({item}) => (
+                <Task item = {item}/>
+              )}
+            />
+          </View>
+        </View>
+        <StatusBar style="auto" />
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 }
 
