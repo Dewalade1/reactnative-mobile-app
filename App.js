@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {v4 as uuidv4} from 'uuid';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity, Alert } from 'react-native';
 
 import TaskData from './data/taskData';
 
@@ -14,9 +14,13 @@ export default function App() {
   const [tasks, setTasks] = useState(TaskData)
 
   const addTask = (text) => {
-    setTasks(prevTasks => {
-      return [{ id:uuidv4(), task: text, done: false }, ...prevTasks]
-    })
+    if (!text) {
+      Alert.alert('No Task to Add', 'Please enter your new task', [{text: 'Alright'}])
+    } else {
+      setTasks(prevTasks => {
+        return [{ id:uuidv4(), task: text, done: false }, ...prevTasks]
+      })
+    }
   }
 
   return (
