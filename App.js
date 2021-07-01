@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity} from 
 
 import TaskData from './data/taskData';
 
+import Task from './components/task';
 import Header from './components/header';
 
 export default function App() {
@@ -18,7 +19,7 @@ export default function App() {
           <FlatList
             data={tasks}
             renderItem={({item}) => (
-              <Text> {item.task} </Text>
+              <Task item = {item}/>
             )}
           />
          </View>
