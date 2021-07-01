@@ -22,7 +22,7 @@
 
 A todolist mobile app built with react-native
 
-[Click here to the download android version](https://expo.io/artifacts/3683f504-cd97-4d64-8002-56a8ee7e6b6d)
+[Todo App for Android ->](https://expo.io/artifacts/3683f504-cd97-4d64-8002-56a8ee7e6b6d)
 
 * IOS Version coming soon
 
@@ -38,10 +38,10 @@ A todolist mobile app built with react-native
 
 ## Demos
 
-![Home View](./images/home-view.png)
+![Home View](./assets/home-view.png)
 
 *Home View*
 
-![Alert Displayed when User tries to input an empty task](./images/no-task-alert.png)
+![Alert Displayed when User tries to input an empty task](./assets/no-task-alert.png)
 
 *Alert Displayed when User tries to input an empty task*
