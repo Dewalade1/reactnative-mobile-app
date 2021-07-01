@@ -1,8 +1,6 @@
 import React from 'react'
 import {StyleSheet, View, Text, FlatList, TouchableOpacity} from 'react-native'
 
-import TaskData from '../data/taskData'
-
 const Task = ({item}) => {
     return (
         <TouchableOpacity style={styles.item}>
