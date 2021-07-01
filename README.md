@@ -22,6 +22,10 @@
 
 A todolist mobile app built with react-native
 
+[Click here to the download android version](https://expo.io/artifacts/3683f504-cd97-4d64-8002-56a8ee7e6b6d)
+
+* IOS Version coming soon
+
 ## Features
 
 * Add tasks
