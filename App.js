@@ -1,14 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity} from 'react-native';
+
+import TaskData from './data/taskData';
+
+import Header from './components/header';
 
 export default function App() {
 
+  const [tasks, setTasks] = useState(TaskData)
+
   return (
-    <View style={styles.container}>
-      <Text> Our Todo List </Text>
+    <SafeAreaView style={styles.container}>
+      <Header/>
+      <View style={styles.content}>
+        <View style={styles.list}>
+          <FlatList
+            data={tasks}
+            renderItem={({item}) => (
+              <Text> {item.task} </Text>
+            )}
+          />
+         </View>
+      </View>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -16,14 +32,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 
-  todo: {
-    margin: 10,
-    color: 'white',
-    fontSize: 10,
-    padding: 10,
+  content: {
+    padding: 30,
+  },
+
+  list: {
+    marginTop: 30,
   }
 });
