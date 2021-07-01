@@ -6,7 +6,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 const Task = ({ item , deleteTask }) => {
     return (
         <TouchableOpacity style={styles.item}>
-        <Text>{item.task} </Text>
+        <Text style={styles.name}>{item.task} </Text>
         <MaterialCommunityIcons 
             name="delete-forever" 
             size={28} 
@@ -19,6 +19,8 @@ const Task = ({ item , deleteTask }) => {
 
 const styles = StyleSheet.create({
     item: {
+        alignItems: 'center',
+        color: '#325772',
         padding: 15,
         borderColor: '#325772',
         borderRadius: 5,
@@ -26,7 +28,13 @@ const styles = StyleSheet.create({
         marginTop: 15,
         borderStyle: 'solid',
         flexDirection: 'row',
+        fontWeight: 'bold',
         justifyContent: 'space-between'
+    },
+    name: {
+        color: '#325772',
+        fontSize: 17,
+        fontWeight: 'bold',
     }
 })
 
